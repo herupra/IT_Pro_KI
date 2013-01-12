@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+android:id="@+id/widget28"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:background="@drawable/back"
+>
+
+<TextView
+    android:id="@+id/widget65"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="-6dp"
+    android:layout_y="404dp"
+    android:text="2.Anywhere during the calculation, whenever you might make a mistake, press reset button to start from the beginning of the question"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget64"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="6dp"
+    android:layout_y="306dp"
+    android:text="1. Go to chat page through list page or search tab"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget63"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="34dp"
+    android:layout_y="90dp"
+    android:text="Using Reset Calculation"
+    android:textSize="25sp" />
+
+</AbsoluteLayout>

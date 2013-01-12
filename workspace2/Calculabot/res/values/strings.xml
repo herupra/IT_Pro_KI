@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Calculabot</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="title_activity_home">Home</string>
+    <string name="title_activity_list_formula">ListFormula</string>
+    <string name="title_activity_help_menu">HelpMenu</string>
+    <string name="title_activity_list_help">ListHelp</string>
+    <string name="title_activity_help_page">HelpPage</string>
+    <string name="appname">Calculabot</string>
+    <string name="a"></string>
+    <string name="todo"></string>
+    <string name="cihint">Search</string>
+    <string name="textfocus">^__^</string>
+    <string name="defaulthome">=</string>
+    <string name="splash">Created by M.A.K.A.M</string>
+
+</resources>

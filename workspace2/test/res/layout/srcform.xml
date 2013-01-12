@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+android:id="@+id/widget28"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:background="@drawable/back"
+>
+
+<TextView
+    android:id="@+id/widget70"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="9dp"
+    android:layout_y="535dp"
+    android:text="4.Tap the specific formula to be led to the chat page to calculate"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget69"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="6dp"
+    android:layout_y="447dp"
+    android:text="3. Press Go Button to be redirected to the specific version of list page"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget68"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="12dp"
+    android:layout_y="379dp"
+    android:text="2.Enter the name of the formula on the search tab"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget67"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="12dp"
+    android:layout_y="306dp"
+    android:text="1.Tap the search tab on the main menu"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget66"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="40dp"
+    android:layout_y="75dp"
+    android:text="Using Search Formula"
+    android:textSize="25sp" />
+
+</AbsoluteLayout>

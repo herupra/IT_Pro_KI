@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+android:id="@+id/widget28"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:background="@drawable/back"
+>
+
+<TextView
+    android:id="@+id/widget62"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="18dp"
+    android:layout_y="526dp"
+    android:text="3.Then you can use the formula you choose on the list into the chat page"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget61"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="18dp"
+    android:layout_y="428dp"
+    android:text="2.Select one of the formula provided"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget60"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="15dp"
+    android:layout_y="343dp"
+    android:text="1.Press list button on the main menu"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget59"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="21dp"
+    android:layout_y="93dp"
+    android:text="Using List Formula"
+    android:textSize="25sp" />
+
+</AbsoluteLayout>

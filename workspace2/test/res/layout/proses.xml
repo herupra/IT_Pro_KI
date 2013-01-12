@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+android:id="@+id/prosesForm"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:background="@drawable/bg"
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+<ImageView
+    android:id="@+id/menugbrFormula"
+    android:layout_width="58dp"
+    android:layout_height="58dp"
+    android:layout_x="180dp"
+    android:layout_y="2dp"
+    android:src="@drawable/list" />
+
+<ImageView
+    android:id="@+id/menuGbrHelp"
+    android:layout_width="61dp"
+    android:layout_height="61dp"
+    android:layout_x="243dp"
+    android:layout_y="-1dp"
+    android:src="@drawable/help" />
+
+<ImageView
+    android:id="@+id/menuGbrper"
+    android:layout_width="65dp"
+    android:layout_height="wrap_content"
+    android:layout_x="109dp"
+    android:layout_y="9dp"
+    android:src="@drawable/list" />
+
+<TextView
+    android:id="@+id/prosesTeksHail"
+    android:layout_width="208px"
+    android:layout_height="30px"
+    android:layout_x="59dp"
+    android:layout_y="151dp"
+    android:text="hasil"
+    android:textSize="20sp" />
+
+
+<ImageView
+    android:id="@+id/menuGbrCari"
+    android:layout_width="58dp"
+    android:layout_height="70dp"
+    android:layout_x="206dp"
+    android:layout_y="206dp"
+    android:src="@drawable/go" />
+
+<EditText
+    android:id="@+id/menuTeksedit"
+    android:layout_width="141dp"
+    android:layout_height="wrap_content"
+    android:layout_x="54dp"
+    android:layout_y="222dp"
+    android:ems="10"
+    android:textSize="18sp" />
+
+
+
+</AbsoluteLayout>

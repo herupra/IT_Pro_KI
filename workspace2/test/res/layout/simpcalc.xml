@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+android:id="@+id/widget28"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:background="@drawable/back"
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+<TextView
+    android:id="@+id/widget54"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="12dp"
+    android:layout_y="556dp"
+    android:text="6.Tap the calculabot head to clear previous calculation and start anew."
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget53"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="13dp"
+    android:layout_y="480dp"
+    android:text="5.Press &apos;go&apos; button when you finish writing the calculation to get the result"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget52"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="18dp"
+    android:layout_y="398dp"
+    android:text="4.For Division process, use &apos;/&apos;"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget51"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="21dp"
+    android:layout_y="334dp"
+    android:text="3.For multiplication process, use * instead of x"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget50"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="22dp"
+    android:layout_y="270dp"
+    android:text="2.Put &apos;=&apos; sign before starting to write any calculation"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget49"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="22dp"
+    android:layout_y="197dp"
+    android:text="1. In main menu, click the search tab"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget48"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="49dp"
+    android:layout_y="78dp"
+    android:text="Simple Calculation"
+    android:textSize="25sp" />
+
+</AbsoluteLayout>

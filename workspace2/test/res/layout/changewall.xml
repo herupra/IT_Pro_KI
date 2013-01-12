@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget28"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/back" >
+
+<TextView
+    android:id="@+id/widget47"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="15dp"
+    android:layout_y="456dp"
+    android:text="4. Press &apos;yes&apos; to change background image, press &apos;no&apos; to choose another wallpaper"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget46"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="16dp"
+    android:layout_y="395dp"
+    android:text="3.Select one of the image provided by the application"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget45"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="16dp"
+    android:layout_y="334dp"
+    android:text="2. Press the button that looks like mountain view"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget44"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="18dp"
+    android:layout_y="285dp"
+    android:text="1. Go to chat page through List Page or By Search tab from main menu"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget43"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="36dp"
+    android:layout_y="75dp"
+    android:text="Changing Wallpaper"
+    android:textSize="25sp" />
+
+</AbsoluteLayout>

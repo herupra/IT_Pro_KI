@@ -1,0 +1,139 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.test"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="15" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".Main"
+            android:label="Loading Screen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+         <activity
+            android:name=".menu"
+            android:label="Halaman Utama" >
+            <intent-filter>
+                <action android:name="android.intent.action.MENU" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+         <activity
+            android:name=".proses"
+            android:label="Proses" >
+            <intent-filter>
+            <action android:name="android.intent.action.PROSES" />
+            <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>  
+        
+          <activity
+            android:name=".list"
+            android:label="list Gambar" >
+            <intent-filter>
+            <action android:name="android.intent.action.LIST" />
+            <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>  
+        
+             <activity
+            android:name=".listrumus"
+            android:label="list rumus" >
+            <intent-filter>
+            <action android:name="android.intent.action.LISTRUMUS" />
+            <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>  
+        <activity
+            android:name=".listhelp"
+            android:label="list help" >
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>  
+        
+		<activity
+            android:name=".inputrumus"
+            android:label="masukkan data" >
+            <intent-filter>
+            <action android:name="android.intent.action.IR" />
+            <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".aboutus"
+            android:label="halaman about us" >
+            <intent-filter>
+            <action android:name="android.intent.action.IR" />
+            <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+         <activity
+            android:name=".changewall"
+            android:label="halaman change wallpaper" >
+            <intent-filter>
+            <action android:name="android.intent.action.IR" />
+            <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+          
+         <activity
+            android:name=".simpcalc"
+            android:label="halaman simple calculation" >
+            <intent-filter>
+            <action android:name="android.intent.action.IR" />
+            <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+         <activity
+            android:name=".copres"
+            android:label="halaman copy result" >
+            <intent-filter>
+            <action android:name="android.intent.action.IR" />
+            <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+         <activity
+            android:name=".listform"
+            android:label="halaman list formula" >
+            <intent-filter>
+            <action android:name="android.intent.action.IR" />
+            <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+         <activity
+            android:name=".rescalc"
+            android:label="halaman reset calculation" >
+            <intent-filter>
+            <action android:name="android.intent.action.IR" />
+            <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+         <activity
+            android:name=".srcform"
+            android:label="halaman search formula" >
+            <intent-filter>
+            <action android:name="android.intent.action.IR" />
+            <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

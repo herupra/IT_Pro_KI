@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bgrIR"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+<TextView
+android:id="@+id/hJudul"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="FORCE"
+android:textSize="24sp"
+android:textStyle="bold"
+android:layout_x="0px"
+android:layout_y="12px"
+>
+</TextView>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="78dp" >
+
+        
+        <ImageView
+            android:id="@+id/btnGo"
+            android:layout_width="98dp"
+            android:layout_height="98dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/reset" />
+
+        <ImageView
+            android:id="@+id/widget31"
+            android:layout_width="94dp"
+            android:layout_height="94dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/widget36"
+            android:src="@drawable/copy" />
+
+        <TextView
+            android:id="@+id/hketerangan"
+            android:layout_width="fill_parent"
+            android:layout_height="40px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/widget31"
+            android:text="TextView" />
+ </RelativeLayout>
+
+
+<ImageView
+android:id="@+id/hGTanya1"
+android:layout_width="251px"
+android:layout_height="wrap_content"
+android:layout_x="0px"
+android:layout_y="50px"
+android:src="@drawable/bubble_full_bot"
+>
+</ImageView>
+<TextView
+android:id="@+id/hTTanya1"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Masukkan besarnya m (mass)"
+android:textStyle="bold"
+android:textColor="#ff000099"
+android:layout_x="0px"
+android:layout_y="50px"
+>
+</TextView>
+<ImageView
+android:id="@+id/hGJawab1"
+android:layout_width="249px"
+android:layout_height="30px"
+android:layout_x="70px"
+android:layout_y="100px"
+android:src="@drawable/bubble_full_user"
+>
+</ImageView>
+<EditText
+android:id="@+id/hEJawab1"
+android:layout_width="144px"
+android:layout_height="33px"
+android:text="9"
+android:textSize="12sp"
+android:inputType="numberDecimal"
+android:layout_x="170px"
+android:layout_y="100px"
+>
+</EditText>
+    
+    
+<ImageView
+android:id="@+id/hGTanya2"
+android:layout_width="251px"
+android:layout_height="wrap_content"
+android:layout_x="0px"
+android:layout_y="150px"
+android:src="@drawable/bubble_full_bot"
+>
+</ImageView>
+<TextView
+android:id="@+id/hTTanya2"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Masukkan besarnya m (mass)"
+android:textStyle="bold"
+android:textColor="#ff000099"
+android:layout_x="0px"
+android:layout_y="150px"
+>
+</TextView>
+<ImageView
+android:id="@+id/hGJawab2"
+android:layout_width="249px"
+android:layout_height="30px"
+android:layout_x="70px"
+android:layout_y="200px"
+android:src="@drawable/bubble_full_user"
+>
+</ImageView>
+<EditText
+android:id="@+id/hEJawab2"
+android:layout_width="144px"
+android:layout_height="33px"
+android:text="9"
+android:textSize="12sp"
+android:inputType="numberDecimal"
+android:layout_x="170px"
+android:layout_y="200px"
+>
+</EditText>
+    
+
+<ImageView
+android:id="@+id/hGTanya3"
+android:layout_width="251px"
+android:layout_height="wrap_content"
+android:layout_x="0px"
+android:layout_y="250px"
+android:src="@drawable/bubble_full_bot"
+>
+</ImageView>
+<TextView
+android:id="@+id/hTTanya3"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Masukkan besarnya m (mass)"
+android:textStyle="bold"
+android:textColor="#ff000099"
+android:layout_x="0px"
+android:layout_y="250px"
+>
+</TextView>
+<ImageView
+android:id="@+id/hGJawab3"
+android:layout_width="249px"
+android:layout_height="30px"
+android:layout_x="70px"
+android:layout_y="300px"
+android:src="@drawable/bubble_full_user"
+>
+</ImageView>
+<EditText
+android:id="@+id/hEJawab3"
+android:layout_width="144px"
+android:layout_height="33px"
+android:text="9"
+android:textSize="12sp"
+android:inputType="numberDecimal"
+android:layout_x="170px"
+android:layout_y="300px"
+>
+</EditText>
+    
+
+<ImageView
+android:id="@+id/hGTanya4"
+android:layout_width="251px"
+android:layout_height="wrap_content"
+android:layout_x="0px"
+android:layout_y="350px"
+android:src="@drawable/bubble_full_bot"
+>
+</ImageView>
+<TextView
+android:id="@+id/hTTanya4"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Masukkan besarnya m (mass)"
+android:textStyle="bold"
+android:textColor="#ff000099"
+android:layout_x="0px"
+android:layout_y="350px"
+>
+</TextView>
+<ImageView
+android:id="@+id/hGJawab4"
+android:layout_width="249px"
+android:layout_height="30px"
+android:layout_x="70px"
+android:layout_y="400px"
+android:src="@drawable/bubble_full_user"
+>
+</ImageView>
+<EditText
+android:id="@+id/hEJawab4"
+android:layout_width="144px"
+android:layout_height="33px"
+android:text="9"
+android:textSize="12sp"
+android:inputType="numberDecimal"
+android:layout_x="170px"
+android:layout_y="400px"
+>
+</EditText>
+    
+
+<ImageView
+android:id="@+id/hGTanya5"
+android:layout_width="251px"
+android:layout_height="wrap_content"
+android:layout_x="0px"
+android:layout_y="450px"
+android:src="@drawable/bubble_full_bot"
+>
+</ImageView>
+<TextView
+android:id="@+id/hTTanya5"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Masukkan besarnya m (mass)"
+android:textStyle="bold"
+android:textColor="#ff000099"
+android:layout_x="0px"
+android:layout_y="450px"
+>
+</TextView>
+<ImageView
+android:id="@+id/hGJawab5"
+android:layout_width="249px"
+android:layout_height="30px"
+android:layout_x="70px"
+android:layout_y="500px"
+android:src="@drawable/bubble_full_user"
+>
+</ImageView>
+<EditText
+android:id="@+id/hEJawab5"
+android:layout_width="144px"
+android:layout_height="33px"
+android:text="9"
+android:textSize="12sp"
+android:inputType="numberDecimal"
+android:layout_x="170px"
+android:layout_y="500px"
+>
+</EditText>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+       
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.43" >
+
+        <ImageView
+            android:id="@+id/ImageView02"
+            android:layout_width="98dp"
+            android:layout_height="98dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/home" />
+
+        <ImageView
+            android:id="@+id/ImageView01"
+            android:layout_width="94dp"
+            android:layout_height="94dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/ImageView02"
+            android:src="@drawable/list" />
+
+        <ImageView
+            android:id="@+id/ImageView03"
+            android:layout_width="94dp"
+            android:layout_height="94dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/wlogo" />
+
+    </RelativeLayout>
+
+</LinearLayout>

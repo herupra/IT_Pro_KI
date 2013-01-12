@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.calculabot"
+    android:versionCode="3"
+    android:versionName="0.9 (Komar Kantor)" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="14" /><application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:theme="@style/AppTheme" android:allowTaskReparenting="true">
+        <activity android:name="com.calculabot.ui.ChatInterface" android:label="@string/app_name">
+            
+        </activity>
+        <activity android:name="com.calculabot.ui.SplashScreen" android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.calculabot.ui.Home" android:label="@string/app_name">
+            
+        </activity>
+        <activity android:name="com.calculabot.ui.ListFormula" android:label="@string/title_activity_list_formula">
+        </activity>
+        <activity android:name="com.calculabot.ui.ListHelp" android:label="@string/title_activity_list_help">
+        </activity>
+        <activity android:name="com.calculabot.ui.HelpPage" android:label="@string/title_activity_help_page">
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+android:id="@+id/widget28"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:background="@drawable/back"
+>
+
+<TextView
+    android:id="@+id/widget57"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="9dp"
+    android:layout_y="337dp"
+    android:text="2. Do your selected formula calculation until you get the result"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget56"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="12dp"
+    android:layout_y="258dp"
+    android:text="1. Go to chat page through list page or search tab"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget58"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="3dp"
+    android:layout_y="404dp"
+    android:text="3.Press Copy button to store the result on the clipboard, then you can paste it anywhere you want outside the calculabot application"
+    android:textSize="20sp" />
+
+<TextView
+    android:id="@+id/widget55"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="50dp"
+    android:layout_y="-1dp"
+    android:text="Using Copy Result"
+    android:textSize="25sp" />
+
+</AbsoluteLayout>
