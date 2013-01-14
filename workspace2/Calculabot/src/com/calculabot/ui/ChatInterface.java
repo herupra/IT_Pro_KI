@@ -1,12 +1,15 @@
 package com.calculabot.ui;
 
-import java.io.BufferedReader;
+
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 import com.calculabot.controller.ChatController;
 import com.calculabot.formulas.BasicFormula;
@@ -19,6 +22,7 @@ import android.app.Activity;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.text.ClipboardManager;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -45,15 +49,17 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 	ImageButton listbutton;
 	TextView text;
 	
+	
 	ScrollView scroller;
 	ChatController cont;
-	PrintWriter out;
-	
+	BufferedWriter out;
+	SharedPreferences pref;
 	
 	int calt = 0; // current calculation type
 	ArrayList<String> curQue = new ArrayList<String>(); //Current Question
 	ArrayList<String> answers = new ArrayList<String>();
-	ArrayList<Bubble> chatLog = new ArrayList<Bubble>();
+	String p; //Preference counter name
+
 	BasicFormula method;
 	int phase = 0;
 	int qn = 0; //question number
@@ -62,7 +68,6 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		Log.v("sadas", "index=");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_chat_interface);
 		
@@ -85,30 +90,51 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 		text = (TextView) findViewById(R.id.TextPut);
 		text.setOnEditorActionListener(this);
 		
-		recreateChat();
+		pref = getPreferences(MODE_PRIVATE);
+		if(!pref.contains(p)){
+			SharedPreferences.Editor editor = pref.edit();
+		    editor.putInt(p, 0);
+		    editor.commit();
+		}
+	    
 		
 		
-		
-		String FILENAME = "chathistory";
-		String splitSign = "`";
+		String FILENAME = "chatlog.botlog";
 
+		try {
+			//Log.e("READ", "bbbbb");
+			 out = new BufferedWriter(new OutputStreamWriter(openFileOutput(FILENAME, Context.MODE_APPEND )));
+			//openFile
+			
+			
+		} catch (FileNotFoundException e) {
+			
+			Log.e("READ", "Bzzx");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		try {
 			//Log.e("READ", "aaaaaa");
-			BufferedReader read = new BufferedReader(new InputStreamReader(openFileInput(FILENAME)));
-			
-			String line = read.readLine();
+			//BufferedReader read = new BufferedReader(new InputStreamReader(openFileInput(FILENAME)));
+			Scanner scan = new Scanner(openFileInput(FILENAME));
+			Log.i("cbot", "elnum: " + pref.getInt(p, 0));
+			String line;
+			String types;
 			String[] temp;
-			while(line != null){
-				temp = line.split(splitSign);
+			for (int i = 0; i<pref.getInt(p, 0);i++){
+				line = scan.nextLine();
+				types = scan.nextLine();
+				Log.e("cbot", "no" + i);
+				Log.i("cbot", "asd" + line);
+				Log.i("cbot", "asd" + types);
 				//Log.e("READ", "Line: " + line);
-				if(temp.length==2){
-					popchat(temp[0], Integer.parseInt(temp[1]));
-				}
-				line = read.readLine();
+				popchat(line, Integer.parseInt(types));
+				
 			}
-			read.close();
+			scan.close();
 		} catch (FileNotFoundException e) {
 			Log.e("READ", "Bzzr");
 			
@@ -121,16 +147,7 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 			
 		}
 		
-		try {
-			//Log.e("READ", "bbbbb");
-			out = new PrintWriter(openFileOutput(FILENAME, Context.MODE_PRIVATE));
-			
-			
-		} catch (FileNotFoundException e) {
-			if (out != null)
-	            out.close();
-			Log.e("READ", "Bzzx");
-		}
+		
 		
 		Intent i = this.getIntent();
 		@SuppressWarnings("unused")
@@ -161,14 +178,29 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 	
 	public void popchat(String text, int type){
 		if(type==0){
-			userPost(text);
+			popUser(text);
 		}else{
-			botPost(text);
+			popBot(text);
 		}
 	}
 	
 	public void userPost(String message){
-		text.setText("");
+		popUser(message);
+		
+		try {
+			out.write(message + "\n" + 0+ "\n");
+			out.flush();
+			SharedPreferences.Editor editor = pref.edit();
+		    editor.putInt(p, pref.getInt(p, 0)+1);
+		    editor.commit();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		scroller.fullScroll(ScrollView.FOCUS_DOWN);
+	}
+	
+	public void popUser(String message){
 		LinearLayout content = (LinearLayout)findViewById(R.id.chatview);
 		
 		
@@ -177,30 +209,40 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 		
 		m.setText(message);
 		
-		
 		content.addView(right);
-		scroller.fullScroll(ScrollView.FOCUS_DOWN);
-		
-		chatLog.add(new Bubble(message, 0));
-		out.println(message+"`0");
 	}
 	
 	public void botPost(String message){
 		
+		popBot(message);
+		
+		try {
+			out.write(message + "\n" + 1+ "\n");
+			out.flush();
+			SharedPreferences.Editor editor = pref.edit();
+		    editor.putInt(p, pref.getInt(p, 0)+1);
+		    editor.commit();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		scroller.fullScroll(ScrollView.FOCUS_DOWN); 
+	}
+	
+	public void popBot(String message){
 		LinearLayout content = (LinearLayout)findViewById(R.id.chatview);
+		
 		
 		View right = getLayoutInflater().inflate(R.layout.chat_item_left, content, false);
 		TextView m = (TextView) right.findViewById(R.id.message);
 		
 		m.setText(message);
-		
-		
 		content.addView(right);
-		scroller.fullScroll(ScrollView.FOCUS_DOWN); 
-		
-		chatLog.add(new Bubble(message, 1));
-		out.println(message+"`1");
 	}
+	
+	
 
 	@Override
 	public void onClick(View clicked) {
@@ -274,7 +316,7 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 				e.printStackTrace();
 				botPost("An error in finding class");
 			}
-		}else{botPost("Try Again");}
+		}else{botPost("You cannot make me calculate an empty input!");}
 	}
 	
 	public void phase1(){
@@ -425,23 +467,7 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 		return b;
 	}
 	
-	//recreate condition
-	public void repost(){
-		
-	}
 	
-	public void recreateChat(){
-		if(!chatLog.isEmpty()){
-			for(Bubble x : chatLog ){
-				if(x.getType()==0){
-					userPost(x.getInput());
-				}else if(x.getType()==1){
-					botPost(x.getInput());
-				}
-			}
-		}
-		
-	}
 
 	@Override
 	public boolean onEditorAction(TextView arg0, int arg1, KeyEvent arg2) {
