@@ -5,8 +5,6 @@ import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -23,10 +21,13 @@ import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.text.ClipboardManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
@@ -43,17 +44,20 @@ import android.widget.TextView.OnEditorActionListener;
  *
  */
 public class ChatInterface extends Activity implements OnClickListener, OnEditorActionListener {
+	LinearLayout footer;
+	LinearLayout header;
+	LinearLayout background;
 	ImageButton gobutton;
 	ImageButton resetbutton;
 	ImageButton copybutton;
 	ImageButton listbutton;
 	TextView text;
 	
+	SharedPreferences pref;//petir
 	
 	ScrollView scroller;
 	ChatController cont;
 	BufferedWriter out;
-	SharedPreferences pref;
 	
 	int calt = 0; // current calculation type
 	ArrayList<String> curQue = new ArrayList<String>(); //Current Question
@@ -70,6 +74,16 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_chat_interface);
+		
+		header=(LinearLayout)findViewById(R.id.header);
+      
+        
+        footer=(LinearLayout)findViewById(R.id.input_bar);
+  
+        
+        background=(LinearLayout)findViewById(R.id.tengah);
+		
+		pref = this.getSharedPreferences("langPref", Context.MODE_PRIVATE);//petir
 		
 		cont = new ChatController();
 		
@@ -90,12 +104,6 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 		text = (TextView) findViewById(R.id.TextPut);
 		text.setOnEditorActionListener(this);
 		
-		pref = getPreferences(MODE_PRIVATE);
-		if(!pref.contains(p)){
-			SharedPreferences.Editor editor = pref.edit();
-		    editor.putInt(p, 0);
-		    editor.commit();
-		}
 	    
 		
 		
@@ -108,7 +116,6 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 			
 			
 		} catch (FileNotFoundException e) {
-			
 			Log.e("READ", "Bzzx");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -120,14 +127,12 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 			//Log.e("READ", "aaaaaa");
 			//BufferedReader read = new BufferedReader(new InputStreamReader(openFileInput(FILENAME)));
 			Scanner scan = new Scanner(openFileInput(FILENAME));
-			Log.i("cbot", "elnum: " + pref.getInt(p, 0));
 			String line;
 			String types;
 			String[] temp;
-			for (int i = 0; i<pref.getInt(p, 0);i++){
+			while (scan.hasNextLine()){
 				line = scan.nextLine();
 				types = scan.nextLine();
-				Log.e("cbot", "no" + i);
 				Log.i("cbot", "asd" + line);
 				Log.i("cbot", "asd" + types);
 				//Log.e("READ", "Line: " + line);
@@ -156,15 +161,126 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 		String iwall = i.getStringExtra("wall");
 		
 		deploy(iname);
-		
+		scroller.fullScroll(ScrollView.FOCUS_DOWN);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_chat_interface, menu);
+		SubMenu subMenu = menu.addSubMenu("Change Header");
+        subMenu.add(1, 1, 0, "Green").setChecked(true);
+        subMenu.add(1, 2, 0, "Red");
+        subMenu.add(1, 3, 0, "Blue");
+        subMenu.add(1, 4, 0, "Yellow");
+        subMenu.add(1, 5, 0, "Grey");
+        subMenu.add(1, 6, 0, "Pink");
+        subMenu.add(1, 7, 0, "Black");
+        subMenu.add(1, 8, 0, "White");
+        subMenu.setGroupCheckable(1, true, true);
+        
+        SubMenu subMenu2 = menu.addSubMenu("Change Footer");
+        subMenu.add(1, 9, 0, "Green").setChecked(true);
+        subMenu.add(1, 10, 0, "Red");
+        subMenu.add(1, 11, 0, "Blue");
+        subMenu.add(1, 12, 0, "Yellow");
+        subMenu.add(1, 13, 0, "Grey");
+        subMenu.add(1, 14, 0, "Pink");
+        subMenu.add(1, 15, 0, "Black");
+        subMenu.add(1, 16, 0, "White");
+        subMenu2.setGroupCheckable(1, true, true);
+        
+        SubMenu subMenu3 = menu.addSubMenu("Change Background");
+        subMenu.add(1, 17, 0, "Green").setChecked(true);
+        subMenu.add(1, 18, 0, "Red");
+        subMenu.add(1, 19, 0, "Blue");
+        subMenu.add(1, 20, 0, "Yellow");
+        subMenu.add(1, 21, 0, "Grey");
+        subMenu.add(1, 22, 0, "Pink");
+        subMenu.add(1, 23, 0, "Black");
+        subMenu.add(1, 24, 0, "White");
+        subMenu3.setGroupCheckable(1, true, true);
 		
 		return true;
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+        case 1:
+        	header.setBackgroundColor(Color.GREEN);
+        	return true;
+        case 2:
+        	header.setBackgroundColor(Color.RED);
+        	 return true;
+        case 3:
+        	header.setBackgroundColor(Color.BLUE);
+        	 return true;
+        case 4:
+        	header.setBackgroundColor(Color.YELLOW);
+        	 return true;
+        case 5:
+        	header.setBackgroundColor(Color.GRAY);
+        	 return true;
+        case 6:
+        	header.setBackgroundColor(Color.MAGENTA);
+        	 return true;
+        case 7:
+        	header.setBackgroundColor(Color.BLACK);
+        	 return true;
+        case 8:
+        	header.setBackgroundColor(Color.WHITE);
+        	 return true;
+        	 
+        case 9:
+        	footer.setBackgroundColor(Color.GREEN);
+        	return true;
+        case 10:
+        	footer.setBackgroundColor(Color.RED);
+        	 return true;
+        case 11:
+        	footer.setBackgroundColor(Color.BLUE);
+        	 return true;
+        case 12:
+        	footer.setBackgroundColor(Color.YELLOW);
+        	 return true;
+        case 13:
+        	footer.setBackgroundColor(Color.GRAY);
+        	 return true;
+        case 14:
+        	footer.setBackgroundColor(Color.MAGENTA);
+        	 return true;
+        case 15:
+        	footer.setBackgroundColor(Color.BLACK);
+        	 return true;
+        case 16:
+        	footer.setBackgroundColor(Color.WHITE);
+        	 return true;
+        	 
+        case 17:
+        	background.setBackgroundColor(Color.GREEN);
+        	return true;
+        case 18:
+        	background.setBackgroundColor(Color.RED);
+        	 return true;
+        case 19:
+        	background.setBackgroundColor(Color.BLUE);
+        	 return true;
+        case 20:
+        	background.setBackgroundColor(Color.YELLOW);
+        	 return true;
+        case 21:
+        	background.setBackgroundColor(Color.GRAY);
+        	 return true;
+        case 22:
+        	background.setBackgroundColor(Color.MAGENTA);
+        	 return true;
+        case 23:
+        	background.setBackgroundColor(Color.BLACK);
+        	 return true;
+        case 24:
+        	background.setBackgroundColor(Color.WHITE);
+        	 return true;
+        }
+        return false;
 	}
 	
 	@Override
@@ -190,9 +306,6 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 		try {
 			out.write(message + "\n" + 0+ "\n");
 			out.flush();
-			SharedPreferences.Editor editor = pref.edit();
-		    editor.putInt(p, pref.getInt(p, 0)+1);
-		    editor.commit();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -219,9 +332,6 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 		try {
 			out.write(message + "\n" + 1+ "\n");
 			out.flush();
-			SharedPreferences.Editor editor = pref.edit();
-		    editor.putInt(p, pref.getInt(p, 0)+1);
-		    editor.commit();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -279,22 +389,47 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 	}
 	
 	public void phase0(){
-		String in = text.getText().toString();
+String in = text.getText().toString();
 		
 		userPost(in);
 		String[] r = in.split(" "); //input in array
 		if(r.length>1){
 			int p = 0; //pointer
 			boolean flag = false;
-			for(p=0, flag = false; p<r.length-1; p++){
-				if(r[p].equalsIgnoreCase("search")
-						|| r[p].equalsIgnoreCase("searching")
-						|| r[p].equalsIgnoreCase("calculate")
-						|| r[p].equalsIgnoreCase("do")){
-					if(r.length > 1){
-						deploy(in);
+			
+			if (pref.getInt("langPref", 0)==0)//petir
+			{
+				for(p=0, flag = false; p<r.length-1; p++)
+				{
+					if(r[p].equalsIgnoreCase("cari")
+						|| r[p].equalsIgnoreCase("mencari")
+						|| r[p].equalsIgnoreCase("menghitung")
+						|| r[p].equalsIgnoreCase("do"))
+					{
+						if(r.length > 1)
+						{
+							deploy(in);
+						}
 					}
 				}
+			}
+			
+			else
+			{
+				for(p=0, flag = false; p<r.length-1; p++)
+				{
+					if(r[p].equalsIgnoreCase("search")
+						|| r[p].equalsIgnoreCase("searching")
+						|| r[p].equalsIgnoreCase("calculate")
+						|| r[p].equalsIgnoreCase("do"))
+					{
+						if(r.length > 1)
+						{
+							deploy(in);
+						}
+					}
+				}
+			
 			}
 		}
 		
@@ -303,8 +438,22 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 	public void deploy(String in){
 
 		calt = cont.checkType(in);
-		
-		if (calt > 0){
+		//petir
+		if (calt > 0 && pref.getInt("langPref", 0)==0){
+			botPost("Beep beep, Kalkulasi dapat dilakukan");
+			try {
+				curQue = cont.getQuetion(in);
+				phase = 1;
+				changeTyper();
+				askQ();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				botPost("Gagal menemukan class");
+			}
+		}
+		else if (calt > 0 && pref.getInt("langPref", 1)==0)
+		{
 			botPost("Available, Starting calculation");
 			try {
 				curQue = cont.getQuetion(in);
@@ -316,7 +465,17 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 				e.printStackTrace();
 				botPost("An error in finding class");
 			}
-		}else{botPost("You cannot make me calculate an empty input!");}
+		}
+		else{
+			if (pref.getInt("langPref", 0)==0)
+			{
+				botPost("Kalkulasi, Mohon masukkan input!");
+			}
+			
+			else
+			{
+				botPost("You cannot make me calculate an empty input!");}
+			}//petir
 	}
 	
 	public void phase1(){
@@ -327,7 +486,17 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 				answers.add(in);
 				qn++;
 				
-			}else{botPost("The input is not a number");}
+			}else{if (pref.getInt("langPref", 0)==0)
+			{
+				botPost("Input yang anda masukkan bukan angka");					
+			}
+			
+			else
+			{
+				botPost("The input is not a number");					
+			}
+
+			}
 		}else{
 			answers.add(in);
 			qn++;}
@@ -339,21 +508,62 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 	public String randomQ(String oriQ){
 		Random gen = new Random();
 		int t = gen.nextInt(4);
-		if(t==0){
-			oriQ = "Please insert " + oriQ + "!";
-		}else if(t==1){
-			oriQ = "Insert the " + oriQ + "!";
-		}else if(t==2){
-			oriQ = "How much the " + oriQ + "?";
-		}else if(t==3){
-			oriQ = "You goddamn stupid, I said insert the " + oriQ + "!";
+		if (pref.getInt("langPref", 0)==0)
+		{
+			if(t==0)
+			{
+				oriQ = "Mohon masukkan " + oriQ + "!";
+				}else if(t==1){
+				oriQ = "Masukkan " + oriQ + ":)";
+				}else if(t==2){
+				oriQ = "Silakan masukkan " + oriQ + "nya?";
+				}else if(t==3){
+				oriQ = "Coba masukkan " + oriQ + " ;)";
+			}
 		}
+		
+		else
+		{
+			if(t==0)
+			{
+				oriQ = "Please insert " + oriQ + "!";
+				}else if(t==1){
+				oriQ = "Insert the " + oriQ + ":)";
+				}else if(t==2){
+				oriQ = "How much the " + oriQ + "?";
+				}else if(t==3){
+				oriQ = "Insert the " + oriQ + ";)";
+			}
+		}//petir
 		return oriQ;
 	}
 	public String randomA(String oriQ){
 		Random gen = new Random();
 		int t = gen.nextInt(4);
-		if(t==0){
+
+		if (pref.getInt("langPref", 0)==0)
+		{
+			if(t==0)
+			{
+				oriQ = "Daaan jawaabaaannyaaa adalaaah " + oriQ + "!";
+			}
+			else if(t==1)
+			{
+				oriQ = "Karena kita teman, jawabannya adalah " + oriQ + ", kawan!";
+			}
+			else if(t==2)
+			{
+				oriQ = "Bip bip bip: " + oriQ;
+			}
+			else if(t==3)
+			{
+				oriQ = "Ting tong" + oriQ;
+			}
+		}
+		
+		else
+		{
+			if(t==0){
 			oriQ = "Aaaaaand the answeeer iiiiissss " + oriQ + "!";
 		}else if(t==1){
 			oriQ = "For you, it's " + oriQ + " friends!";
@@ -362,7 +572,12 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 		}else if(t==3){
 			oriQ = "Burp, it's " + oriQ;
 		}
-		return oriQ;
+		}
+			
+			return oriQ;
+		
+		
+	
 	}
 	
 	//end just for fun
@@ -386,12 +601,22 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 			answers = new ArrayList<String>();
 			
 		}else if (phase==1){
-			botPost("Resetting Calculation");
+			if (pref.getInt("langPref", 0)==0)
+			{
+				botPost("Mempersiapkan ulang kalkulasi");
+			}
+			
+			else
+			{
+				botPost("Resetting Calculation");
+			}
+
 			qn = 0;
 			answers = new ArrayList<String>();
 			if(!curQue.isEmpty()){
 				askQ();
 			}
+		
 		
 		}
 		
@@ -427,7 +652,15 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 	public void copyResult(){
 		/*clipboard.setText(result);*/
 		if(result.equals("")){
-			Toast.makeText(ChatInterface.this, "No data that can be copied", Toast.LENGTH_SHORT).show();
+			if (pref.getInt("langPref", 0)==0)
+			{
+				Toast.makeText(ChatInterface.this, "Tidak ada data yang dapat disalin", Toast.LENGTH_SHORT).show();
+			}
+			
+			else
+			{
+				Toast.makeText(ChatInterface.this, "No data that can be copied", Toast.LENGTH_SHORT).show();
+			}		
 		}else{
 			
 		
@@ -441,7 +674,15 @@ public class ChatInterface extends Activity implements OnClickListener, OnEditor
 			    android.text.ClipboardManager clipboard = (android.text.ClipboardManager)getSystemService(CLIPBOARD_SERVICE); 
 			    clipboard.setText(result);
 			}
-			Toast.makeText(ChatInterface.this, "Result saved to clipboard", Toast.LENGTH_SHORT).show();	
+			if (pref.getInt("langPref", 0)==0)//tingtong
+			{
+				Toast.makeText(ChatInterface.this, "Hasil telah disalin ke clipboard", Toast.LENGTH_SHORT).show();	
+			}
+			
+			else
+			{
+				Toast.makeText(ChatInterface.this, "Result saved to clipboard", Toast.LENGTH_SHORT).show();	
+			}		
 		}
 	}
 	
